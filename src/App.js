@@ -1,38 +1,20 @@
-import logo from './logo.svg';
+import Login from './views/Login'
+import useToken from './server/useToken';
+import { useState } from 'react';
 import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 function App() {
+	const { token, setToken } = useToken();
+
+	if (!token) {
+		//return <Route path="/login" component={Login(setToken = {setToken})}/>
+		return <Login setToken={setToken} />
+	}
+
   return (
-    <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-	  <h1>Login with React</h1>
-      <form>
-      <label>
-        <p>Username</p>
-        <input type="text" />
-      </label>
-      <label>
-        <p>Password</p>
-        <input type="password" />
-      </label>
-      <div>
-        <button type="submit">Submit</button>
-      </div>
-    </form>
-    </div>
+	// <Login/>
+	<h1>Abobus</h1>
   );
 }
 
